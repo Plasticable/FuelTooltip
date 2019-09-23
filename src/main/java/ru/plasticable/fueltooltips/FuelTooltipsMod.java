@@ -1,10 +1,10 @@
 package ru.plasticable.fueltooltips;
 
+import net.minecraft.tileentity.FurnaceTileEntity;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -23,7 +23,7 @@ public class FuelTooltipsMod {
 
     @SubscribeEvent
     public void onTooltipRender(ItemTooltipEvent event) {
-        final int burnTime = ForgeHooks.getBurnTime(event.getItemStack());
+        final int burnTime = FurnaceTileEntity.getBurnTimes().getOrDefault(event.getItemStack().getItem(), 0);
 
         if (burnTime < 1) {
             return;
