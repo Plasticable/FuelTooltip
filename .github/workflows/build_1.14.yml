@@ -3,7 +3,7 @@ name: Build 1.14
 on:
   push:
     branches:
-      - '1.14'
+      - 1.14
 
 jobs:
   build:
