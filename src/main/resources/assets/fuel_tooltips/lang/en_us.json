@@ -1,5 +1,0 @@
-{
-  "gui.fuel_tooltips.header": "Fuel info:",
-  "gui.fuel_tooltips.burning_time": " Burning time: %1$f seconds (%2$d ticks)",
-  "gui.fuel_tooltips.number_of_operations": " Can burn or melt items: %1$f"
-}

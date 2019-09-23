@@ -1,5 +1,0 @@
-{
-  "gui.fuel_tooltips.header": "Информация о топливе:",
-  "gui.fuel_tooltips.burning_time": " Время горения: %1$f сек (%2$d тиков)",
-  "gui.fuel_tooltips.number_of_operations": " Может сжечь или переплавить предметов: %1$f"
-}
