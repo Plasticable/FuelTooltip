@@ -1,6 +1,6 @@
 package ru.plasticable.fueltooltips;
 
-import net.minecraft.tileentity.FurnaceTileEntity;
+import net.minecraft.tileentity.AbstractFurnaceTileEntity;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -23,7 +23,7 @@ public class FuelTooltipsMod {
 
     @SubscribeEvent
     public void onTooltipRender(ItemTooltipEvent event) {
-        final int burnTime = FurnaceTileEntity.getBurnTimes().getOrDefault(event.getItemStack().getItem(), 0);
+        final int burnTime = AbstractFurnaceTileEntity.getBurnTimes().getOrDefault(event.getItemStack().getItem(), 0);
 
         if (burnTime < 1) {
             return;
