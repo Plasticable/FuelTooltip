@@ -8,5 +8,6 @@ run/
 gradle-app.setting
 !gradle-wrapper.jar
 .gradletasknamecache
+secrets.properties
 *.iml
 *.ipr

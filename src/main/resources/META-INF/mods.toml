@@ -20,7 +20,7 @@ loaderVersion="[28.1,)" #mandatory (26 is current forge version)
     #updateJSONURL="http://myurl.me/" #optional
 
     # A URL for the "homepage" for this mod, displayed in the mod UI
-    displayURL="https://github.com/Plasticable/FuelTooltip/" #optional
+    displayURL="https://github.com/Plasticable/FuelTooltips/" #optional
 
     # A file name (in the root of the mod JAR) containing a logo for display
     #logoFile="FuelTooltips.png" #optional

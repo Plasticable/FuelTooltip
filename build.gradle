@@ -5,11 +5,14 @@ buildscript {
         mavenCentral()
     }
     dependencies {
+        classpath 'com.novoda:gradle-build-properties-plugin:0.4.1'
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
     }
 }
 
+apply plugin: 'com.novoda.build-properties'
 apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'maven-publish'
 
 version = modVersion
 group = modGroup
@@ -89,4 +92,33 @@ dependencies {
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.14.4-28.1.0'
 
+}
+
+buildProperties {
+    secrets {
+        using project.file('secrets.properties')
+    }
+}
+
+project.afterEvaluate {
+    publishing {
+        repositories {
+            maven {
+                name = 'Github'
+                url = uri("https://maven.pkg.github.com/${modAuthor}/${modBaseName}")
+                credentials {
+                    username = modAuthor
+                    password = buildProperties.secrets['GITHUB_API_TOKEN'].string
+                }
+            }
+        }
+        publications {
+            register('jar', MavenPublication) {
+                from(components['java'])
+                pom {
+                    url.set('https://github.com/' + String.valueOf(modAuthor) + '/' + modBaseName + '.git')
+                }
+            }
+        }
+    }
 }
